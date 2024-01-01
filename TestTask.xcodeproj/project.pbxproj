@@ -13,6 +13,9 @@
 		F754DF832B40341900DB3FAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DF822B40341900DB3FAF /* ViewController.swift */; };
 		F754DF882B40341A00DB3FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F754DF872B40341A00DB3FAF /* Assets.xcassets */; };
 		F754DF8B2B40341A00DB3FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F754DF892B40341A00DB3FAF /* LaunchScreen.storyboard */; };
+		F754DF992B4061DB00DB3FAF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DF982B4061DB00DB3FAF /* ViewModel.swift */; };
+		F754DF9D2B40866000DB3FAF /* ResponseNetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DF9C2B40866000DB3FAF /* ResponseNetModel.swift */; };
+		F754DF9F2B4138CD00DB3FAF /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DF9E2B4138CD00DB3FAF /* NetworkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		F754DF872B40341A00DB3FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F754DF8A2B40341A00DB3FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F754DF8C2B40341A00DB3FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F754DF982B4061DB00DB3FAF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F754DF9C2B40866000DB3FAF /* ResponseNetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseNetModel.swift; sourceTree = "<group>"; };
+		F754DF9E2B4138CD00DB3FAF /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +84,73 @@
 		F754DF7D2B40341900DB3FAF /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
+				F754DF9A2B4062CA00DB3FAF /* Network */,
+				F754DF922B4056D800DB3FAF /* Feature */,
 				F754DF7E2B40341900DB3FAF /* AppDelegate.swift */,
 				F754DF802B40341900DB3FAF /* SceneDelegate.swift */,
-				F754DF822B40341900DB3FAF /* ViewController.swift */,
 				F754DF872B40341A00DB3FAF /* Assets.xcassets */,
 				F754DF892B40341A00DB3FAF /* LaunchScreen.storyboard */,
 				F754DF8C2B40341A00DB3FAF /* Info.plist */,
 			);
 			path = TestTask;
+			sourceTree = "<group>";
+		};
+		F754DF922B4056D800DB3FAF /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				F754DF932B40577700DB3FAF /* Weather */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		F754DF932B40577700DB3FAF /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				F754DF942B40578100DB3FAF /* ViewController */,
+				F754DF962B40579500DB3FAF /* ViewModel */,
+				F754DF972B4057A000DB3FAF /* View */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		F754DF942B40578100DB3FAF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F754DF822B40341900DB3FAF /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F754DF962B40579500DB3FAF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F754DF982B4061DB00DB3FAF /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F754DF972B4057A000DB3FAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F754DF9A2B4062CA00DB3FAF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F754DF9B2B40673000DB3FAF /* NetModels */,
+				F754DF9E2B4138CD00DB3FAF /* NetworkClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F754DF9B2B40673000DB3FAF /* NetModels */ = {
+			isa = PBXGroup;
+			children = (
+				F754DF9C2B40866000DB3FAF /* ResponseNetModel.swift */,
+			);
+			path = NetModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,9 +267,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F754DF9D2B40866000DB3FAF /* ResponseNetModel.swift in Sources */,
 				F754DF832B40341900DB3FAF /* ViewController.swift in Sources */,
 				F754DF7F2B40341900DB3FAF /* AppDelegate.swift in Sources */,
+				F754DF992B4061DB00DB3FAF /* ViewModel.swift in Sources */,
 				F754DF812B40341900DB3FAF /* SceneDelegate.swift in Sources */,
+				F754DF9F2B4138CD00DB3FAF /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
