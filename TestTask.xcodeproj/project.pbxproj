@@ -16,6 +16,9 @@
 		F754DF992B4061DB00DB3FAF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DF982B4061DB00DB3FAF /* ViewModel.swift */; };
 		F754DF9D2B40866000DB3FAF /* ResponseNetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DF9C2B40866000DB3FAF /* ResponseNetModel.swift */; };
 		F754DF9F2B4138CD00DB3FAF /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DF9E2B4138CD00DB3FAF /* NetworkClient.swift */; };
+		F754DFA12B42B22B00DB3FAF /* AlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DFA02B42B22B00DB3FAF /* AlertCell.swift */; };
+		F754DFA82B4416AE00DB3FAF /* CollectionExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DFA72B4416AE00DB3FAF /* CollectionExt.swift */; };
+		F754DFAA2B44424A00DB3FAF /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754DFA92B44424A00DB3FAF /* UIViewExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		F754DF982B4061DB00DB3FAF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F754DF9C2B40866000DB3FAF /* ResponseNetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseNetModel.swift; sourceTree = "<group>"; };
 		F754DF9E2B4138CD00DB3FAF /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		F754DFA02B42B22B00DB3FAF /* AlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCell.swift; sourceTree = "<group>"; };
+		F754DFA72B4416AE00DB3FAF /* CollectionExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExt.swift; sourceTree = "<group>"; };
+		F754DFA92B44424A00DB3FAF /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 		F754DF7D2B40341900DB3FAF /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
+				F754DFA42B44163F00DB3FAF /* Extensions */,
 				F754DF9A2B4062CA00DB3FAF /* Network */,
 				F754DF922B4056D800DB3FAF /* Feature */,
 				F754DF7E2B40341900DB3FAF /* AppDelegate.swift */,
@@ -132,6 +139,7 @@
 		F754DF972B4057A000DB3FAF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F754DFA02B42B22B00DB3FAF /* AlertCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +159,15 @@
 				F754DF9C2B40866000DB3FAF /* ResponseNetModel.swift */,
 			);
 			path = NetModels;
+			sourceTree = "<group>";
+		};
+		F754DFA42B44163F00DB3FAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F754DFA72B4416AE00DB3FAF /* CollectionExt.swift */,
+				F754DFA92B44424A00DB3FAF /* UIViewExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F754DFAA2B44424A00DB3FAF /* UIViewExt.swift in Sources */,
+				F754DFA12B42B22B00DB3FAF /* AlertCell.swift in Sources */,
 				F754DF9D2B40866000DB3FAF /* ResponseNetModel.swift in Sources */,
+				F754DFA82B4416AE00DB3FAF /* CollectionExt.swift in Sources */,
 				F754DF832B40341900DB3FAF /* ViewController.swift in Sources */,
 				F754DF7F2B40341900DB3FAF /* AppDelegate.swift in Sources */,
 				F754DF992B4061DB00DB3FAF /* ViewModel.swift in Sources */,
