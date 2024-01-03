@@ -34,6 +34,7 @@ final class ViewModel {
                 self._responseModel = try await NetworkClient.shared.fetchData(
                     urlPath: Self.dataUrlString)
             } catch {
+                // There should be error handling here
             }
         }
     }
@@ -50,6 +51,7 @@ final class ViewModel {
                     self.imageCache.setObject(image, forKey: id.uuidString as NSString)
                     cellItem.imagePublisher.send(image)
                 } catch {
+                    // There should be error handling here
                 }
             }
         }
