@@ -36,12 +36,3 @@ final class NetworkClient {
         return image
     }
 }
-
-extension URL {
-    init(string: StaticString) {
-        guard let url = URL(string: "\(string)") else {
-            preconditionFailure("Invalid URL string: \(string)")
-        }
-        self = url
-    }
-}
