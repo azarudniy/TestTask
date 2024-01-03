@@ -23,5 +23,6 @@ extension ResponseNetModel.FeatureNetModel {
         let effective: Date
         let ends: Date?
         let senderName: String
+        let id: String
     }
 }

@@ -58,8 +58,7 @@ final class ViewController: UIViewController {
             .dropFirst()
             .debounce(for: .milliseconds(100), scheduler: RunLoop.main)
             .sink { [weak self] _ in
-                guard let self else { return }
-                self.tableView.reloadData()
+                self?.tableView.reloadData()
             }.store(in: &self.cancellables)
     }
 }
@@ -78,6 +77,7 @@ extension ViewController: UITableViewDataSource {
                 for: indexPath) as? AlertCell else {
             return UITableViewCell()
         }
+        self.viewModel.imageRequest(id: cellItem.id)
         cell.setupData(cellItem)
         return cell
     }

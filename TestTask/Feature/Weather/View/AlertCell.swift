@@ -7,8 +7,13 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 final class AlertCell: UITableViewCell {
+
+    // MARK: - cancellable
+
+    private var cancellables = Set<AnyCancellable>()
 
     // MARK: - cell id
 
@@ -16,17 +21,17 @@ final class AlertCell: UITableViewCell {
 
     // MARK: - gui
 
-    private lazy var eventContainer: UIStackView = {
+    private lazy var leftContainer: UIStackView = {
         let stack = UIStackView()
-        stack.axis = .horizontal
+        stack.axis = .vertical
         stack.distribution = .fillProportionally
         stack.isUserInteractionEnabled = false
         return stack
     }()
 
-    private lazy var sourceContainer: UIStackView = {
+    private lazy var rightContainer: UIStackView = {
         let stack = UIStackView()
-        stack.axis = .horizontal
+        stack.axis = .vertical
         stack.distribution = .fillProportionally
         stack.isUserInteractionEnabled = false
         return stack
@@ -34,7 +39,7 @@ final class AlertCell: UITableViewCell {
 
     private lazy var commonContainer: UIStackView = {
         let stack = UIStackView()
-        stack.axis = .vertical
+        stack.axis = .horizontal
         stack.distribution = .fillEqually
         stack.isUserInteractionEnabled = false
         return stack
@@ -60,6 +65,11 @@ final class AlertCell: UITableViewCell {
         return view
     }()
 
+    private lazy var customImageView: UIImageView = {
+        let view = UIImageView()
+        return view
+    }()
+
     // MARK: - init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -72,9 +82,11 @@ final class AlertCell: UITableViewCell {
     }
     
     private func initView() {
-        self.eventContainer.addArrangedSubviews([self.eventView, self.eventDateView])
-        self.sourceContainer.addArrangedSubviews([self.sourceView, self.durationView])
-        self.commonContainer.addArrangedSubviews([self.eventContainer, self.sourceContainer])
+        self.leftContainer.addArrangedSubviews([self.eventView, self.sourceView])
+        self.rightContainer.addArrangedSubviews([self.eventDateView, self.durationView])
+        self.commonContainer.addArrangedSubviews([self.customImageView,
+                                                  self.leftContainer,
+                                                  self.rightContainer])
         self.contentView.addSubview(self.commonContainer)
         self.makeConstraints()
     }
@@ -82,6 +94,10 @@ final class AlertCell: UITableViewCell {
     // MARK: - constraints
 
     private func makeConstraints() {
+        self.customImageView.snp.makeConstraints {
+            $0.width.height.equalTo(200)
+        }
+
         self.commonContainer.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -94,5 +110,17 @@ final class AlertCell: UITableViewCell {
         self.eventDateView.text = "\(item.startDate) - \(item.endDate)"
         self.sourceView.text = item.source
         self.durationView.text = item.duration
+
+        item.imagePublisher
+            .sink { [weak self] image in
+                self?.customImageView.image = image
+            }.store(in: &self.cancellables)
+    }
+
+    // MARK: - prepare for reuse
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.customImageView.image = nil
     }
 }

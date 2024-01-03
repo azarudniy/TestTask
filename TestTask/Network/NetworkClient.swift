@@ -5,7 +5,7 @@
 //  Created by Александр Зарудний on 31.12.23.
 //
 
-import Foundation
+import UIKit
 
 final class NetworkClient {
     static let shared = NetworkClient()
@@ -24,6 +24,16 @@ final class NetworkClient {
         let (data, _) = try await URLSession.shared.data(for: request)
         let response = try decoder.decode(T.self, from: data)
         return response
+    }
+
+    func fetchImage(urlPath: String) async throws -> UIImage {
+        guard let url = URL(string: urlPath) else {
+            throw URLError(.badURL)
+        }
+        let request = URLRequest(url: url)
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let image = UIImage(data: data) ?? .init()
+        return image
     }
 }
 
