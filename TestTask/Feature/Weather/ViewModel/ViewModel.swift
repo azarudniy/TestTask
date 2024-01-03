@@ -12,7 +12,7 @@ final class ViewModel {
 
     // MARK: - cache
 
-    private var imageCache = NSCache<NSString, UIImage>()
+    private let imageCache = NSCache<NSString, UIImage>()
 
     // MARK: - property
 
@@ -58,7 +58,7 @@ final class ViewModel {
     }
 }
 
-extension ViewModel {
+private extension ViewModel {
     private static let dataUrlString = "https://api.weather.gov/alerts/active?status=actual&message_type=alert"
     private static let imageUrlString = "https://picsum.photos/1000"
 }

@@ -124,6 +124,7 @@ final class AlertCell: UITableViewCell {
         self.sourceView.text = item.source
 
         item.imagePublisher
+            .compactMap { $0 }
             .sink { [weak self] image in
                 self?.customImageView.image = image
             }.store(in: &self.cancellables)
