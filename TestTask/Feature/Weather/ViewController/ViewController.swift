@@ -78,8 +78,8 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        self.viewModel.imageRequest(id: cellItem.id)
         cell.setupData(cellItem)
+        self.viewModel.imageRequest(id: cellItem.id)
         return cell
     }
 }

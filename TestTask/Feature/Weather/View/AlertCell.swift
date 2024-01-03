@@ -116,6 +116,7 @@ final class AlertCell: UITableViewCell {
     // MARK: - setup data
 
     func setupData(_ item: ViewModel.CellItem) {
+        self.cancellables.removeAll()
         self.eventView.text = item.eventName
         self.startDateView.text = item.startDate
         self.endDateView.text = item.endDate
