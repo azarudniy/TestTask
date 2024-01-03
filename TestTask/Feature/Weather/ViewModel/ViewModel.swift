@@ -74,21 +74,28 @@ extension ViewModel {
         init(model: ResponseNetModel.FeatureNetModel.PropertiesNetModel) {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd.MM.yyyy"
-            self.eventName = model.event
-            self.startDate = formatter.string(from: model.effective)
+            self.eventName = "\(Self.evenTitle) \(model.event)"
+            self.startDate = "\(Self.startDateTitle) \(formatter.string(from: model.effective))"
 
             let calendar = Calendar.current
-            if let ends = model.ends, 
-                let days = calendar.dateComponents(
+            if let ends = model.ends, let days = calendar.dateComponents(
                     [.day], from: model.effective, to: ends).day {
-                self.endDate = formatter.string(from: ends)
-                self.duration = "\(String(describing: days + 1)) day(s)"
+                self.endDate = "\(Self.endDateTitle) \(formatter.string(from: ends))"
+                self.duration = "\(Self.durationTitle) \(String(describing: days + 1)) day(s)"
             } else {
-                self.endDate = "..."
-                self.duration = "processing"
+                self.endDate = "\(Self.endDateTitle) ..."
+                self.duration = "\(Self.durationTitle) processing"
             }
-            self.source = model.senderName
+            self.source = "\(Self.sourseTitle) \(model.senderName)"
             self.id = .init(uuidString: model.id) ?? .init()
         }
     }
+}
+
+private extension ViewModel.CellItem {
+    private static let evenTitle = "Event:"
+    private static let startDateTitle = "Start date:"
+    private static let endDateTitle = "End date:"
+    private static let durationTitle = "Duration:"
+    private static let sourseTitle = "Source:"
 }

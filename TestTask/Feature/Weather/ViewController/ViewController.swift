@@ -77,6 +77,7 @@ extension ViewController: UITableViewDataSource {
                 for: indexPath) as? AlertCell else {
             return UITableViewCell()
         }
+        cell.selectionStyle = .none
         self.viewModel.imageRequest(id: cellItem.id)
         cell.setupData(cellItem)
         return cell
@@ -85,6 +86,4 @@ extension ViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension ViewController: UITableViewDelegate {
-
-}
+extension ViewController: UITableViewDelegate {}
